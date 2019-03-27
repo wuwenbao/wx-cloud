@@ -27,6 +27,20 @@ class Cloud {
   callFunction(url, data = {}) {
     return this.ctx.then(() => this.http.Post(url, data))
   }
+
+  /**
+   * 用户授权操作
+   */
+  getUserinfo({encryptedData, iv}) {
+    return new Promise((resolve, reject) => {
+      this.callFunction('/fans', {encryptedData, iv})
+        .then(res => {
+          this.http.setToken(res.data.token)
+          resolve(res)
+        })
+        .catch(reject)
+    })
+  }
 }
 
 module.exports = new Cloud()

@@ -14,7 +14,7 @@
     "coverage": "jest ./test/* --coverage --bail",
     "lint": "eslint --fix \"src/**/*.js\"",
     "lint-tools": "eslint \"tools/**/*.js\" --rule \"import/no-extraneous-dependencies: false\"",
-    "p": "npm version patch && npm publish --access public"
+    "p": "npm version patch && npm publish"
   },
   "miniprogram": "miniprogram_dist",
   "author": "wenbao",

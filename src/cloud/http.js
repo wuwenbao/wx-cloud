@@ -26,6 +26,13 @@ class Http {
   }
 
   /**
+   * 设置token
+   */
+  setToken(token = '') {
+    this.TOKEN = token
+  }
+
+  /**
    * 发起请求
    */
   request(url, formData, method, header) {
@@ -91,7 +98,7 @@ class Http {
           this.request('/login', {code: res.code}, {}, 'GET')
             .then(res => {
               if (res.data.data.token) {
-                this.TOKEN = res.data.data.token
+                this.setToken(res.data.data.token)
                 this.OPENID = res.data.data.openid
                 resolve(res.data)
               } else {
