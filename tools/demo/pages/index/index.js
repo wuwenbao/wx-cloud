@@ -45,10 +45,7 @@ Page({
     })
 
     wx.api
-      .callFunction('/user', {
-        encryptedData,
-        iv
-      })
+      .getUserinfo(encryptedData, iv)
       .then(res => {
         wx.hideLoading()
         this.setData({
