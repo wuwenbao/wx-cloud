@@ -18,6 +18,7 @@ class Cloud {
     this.OPENID = '' // openid
     this.REPEAT = false // repeat
     this.IDENT = '微信平台' // 推广标识
+    this.SCENE = '' // 推广渠道
   }
 
   /**
