@@ -62,7 +62,7 @@ class Cloud {
   /**
    * 统计
    */
-  stat(scene = 0) {
+  stat(scene = '') {
     return new Promise((resolve, reject) => {
       this.callFunction('/stat', {scene})
         .then(res => {
@@ -92,6 +92,9 @@ class Cloud {
           this._wxLogin()
             .then(() => this._post(url, formData))
             .catch(reject)
+        } else {
+          showToast('拒绝访问...')
+          reject(new Error('拒绝访问...'))
         }
       } else {
         showToast('网络异常...')
