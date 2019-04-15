@@ -16,9 +16,6 @@ class Cloud {
     this.hasRetried = false // 是否已经进行过重试
     this.TOKEN = '' // token
     this.OPENID = '' // openid
-    this.REPEAT = false // repeat
-    this.IDENT = '微信平台' // 推广标识
-    this.SCENE = '' // 推广渠道
   }
 
   /**
@@ -42,35 +39,6 @@ class Cloud {
    */
   callFunction(url, data = {}) {
     return this.ctx.then(() => this._post(url, data))
-  }
-
-  /**
-   * 用户授权操作
-   */
-  getUserinfo(encryptedData, iv) {
-    return new Promise((resolve, reject) => {
-      this.callFunction('/fans', {encryptedData, iv})
-        .then(res => {
-          this.TOKEN = res.data.token
-          this.REPEAT = res.data.repeat
-          resolve(res)
-        })
-        .catch(reject)
-    })
-  }
-
-  /**
-   * 统计
-   */
-  stat(scene = '') {
-    return new Promise((resolve, reject) => {
-      this.callFunction('/stat', {scene})
-        .then(res => {
-          this.IDENT = res.data.ident
-          resolve(res)
-        })
-        .catch(reject)
-    })
   }
 
   /**
