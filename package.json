@@ -1,6 +1,6 @@
 {
   "name": "wx-cloud",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "小程序云开发模拟封装",
   "main": "miniprogram_dist/index.js",
   "scripts": {
