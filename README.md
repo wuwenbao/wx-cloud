@@ -69,3 +69,32 @@ Page({
   }
 });
 ```
+
+## Mock
+
+``` js
+// 字符串形式
+wx.api.mock('/login', {openid: 'openid', token: 'token'}, 0)
+
+
+// 对象形式
+wx.api.mock({
+  url: '/login',
+  data: {openid: 'openid', token: 'token'},
+  code: 0
+})
+
+// 数组形式
+wx.api.mock([
+  {
+    url: '/login',
+    data: {openid: 'openid', token: 'token'},
+    code: 0
+  },
+  {
+    url: '/openid',
+    data: {openid: 'openid', token: 'token'},
+    code: 0
+  }
+])
+```
